@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+    <link href="/stylesheet/main.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 col-md-2"></div>
+        <div class="col-lg-6 col-md-8 login-box">
+            <div class="col-lg-12 login-key">
+                <i class="fa fa-key" aria-hidden="true"></i>
+            </div>
+            <div class="col-lg-12 login-title">
+                Fake News Detection Portal
+                <div class="col-lg-6 login-btm login-button">
+                    <button type="submit" class="btn btn-outline-primary" onclick="goback()">Go back</button>
+                </div>
+            </div>
+
+            <div class="col-lg-12 login-form">
+                <div class="col-lg-12 login-form">
+                    <div class="Result">
+                        Result : <%-(body) %>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-2"></div>
+        </div>
+    </div>
+</div>
+<script>
+    function goback() {
+        window.location = '/api/webApp'
+    }
+</script>
+</body>
+</html>
