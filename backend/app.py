@@ -1,10 +1,11 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
+import json
 
 app = Flask(__name__, template_folder="../frontend/template")
 
-def algo():
+def getNews(title):
     # calling the Models function here
-    return None
+    return True
 
 
 @app.route('/')
@@ -12,16 +13,20 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/api', methods=["POST", "GET"])
+@app.route('/api', methods=["POST"])
 def base():
-    result= algo()
+    data = request.get_json()
+    data = json.dumps(data)
+    data_load = json.loads(data)
+    newstitle = data_load['newsId']['title']
+    result = getNews(newstitle)
     solutions = {
-        'name': "fake news apis",
-        'Authenticity': True,
-        'status': 200
+        'title': newstitle,
+        'Authenticity': result,
+        'status': "Successfully Retrieved Result"
     }
-    return jsonify(solutions=solutions)
+    return jsonify(data=solutions)
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(port=5000, debug=True)
