@@ -23,7 +23,7 @@ const pushFormDetails = (req, res, next) => {
         console.log("Making request");
         console.log(body.data.Authenticity)
         res.render('results', {body: body.data.Authenticity})
-    })
+    });
     // res.status(200).json(obj)
 }
 
@@ -33,6 +33,7 @@ const webApp = (req, res, next) => {
 
 var getResultPayload = (req, res, next) => {
     var url = 'http://127.0.0.1:5000/api';
+    console.log("Reaching payload api");
     var news = req.query;
     if (_.isEmpty(_.get(news, 'description', ''))) {
         res.json({"result": {error: "Description is Empty", status: 400}})
