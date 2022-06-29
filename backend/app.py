@@ -5,6 +5,7 @@ app = Flask(__name__, template_folder="../frontend/template")
 
 def getNews(title):
     # calling the Models function here
+
     return True
 
 
